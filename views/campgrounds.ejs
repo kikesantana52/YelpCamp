@@ -1,0 +1,41 @@
+<% include partials/header %>
+
+
+
+<div class="container">
+  <header class="jumbotron">
+    <div class="container">
+      <h1>Welcome to YelpCamp</h1>
+      <p>View our hand-picked campgrounds form all over the world</p>
+      <p>
+        <a class="btn btn-primary btn-lg" href="/campgrounds/new"> Add new Campground</a>
+      </p>
+    </div>
+  </header>
+
+  <% var count = 3; /*COUNT=3*/ %>
+  <% campgrounds.forEach(elem => { /*pOR CADA ELEMENTO*/ %>
+    <% if (count === 3){ /*Si la variable count vale 3*/%>
+        <div class="row text-center py-2">
+        <div class="card-deck">
+    <% count = 0; } %>
+    <div class="card">
+      <img src="<%= elem.image %>" class="card-img-top" style="height:200px; widht: auto;">
+      <div class="card-body">
+        <h4 class="card-title"><%=elem.name %></h4>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+    <% count++; if (count == 3){ %>
+        </div>
+        </div>
+      <% } %>
+   <% }); %>
+
+
+
+
+</div>
+
+
+<% include partials/footer %>
